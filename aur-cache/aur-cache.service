@@ -1,0 +1,7 @@
+[Unit]
+Description=Description of aur-cache
+
+[Service]
+ExecStart=/usr/bin/aur-cache.sh
+Type=oneshot
+User=keishis

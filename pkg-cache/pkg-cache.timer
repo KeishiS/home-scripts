@@ -1,0 +1,9 @@
+[Unit]
+Description=Run pkg-cache at 1PM daily
+
+[Timer]
+OnCalendar=*-*-* 13:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,7 @@
+[Unit]
+Description=Description of pkg-cache
+
+[Service]
+ExecStart=/usr/bin/pkg-cache.sh
+Type=oneshot
+User=root

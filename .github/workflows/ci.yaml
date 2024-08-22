@@ -1,0 +1,16 @@
+on:
+    workflow_dispatch:
+    push:
+        branches: main
+
+name: Deploy packages
+jobs:
+    make_pkgs:
+        runs-on: ubuntu-latest
+        container:
+            image: archlinux:latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Pacman Version
+              run: pacman --version
