@@ -8,9 +8,36 @@ jobs:
     make_pkgs:
         runs-on: ubuntu-latest
         container:
-            image: archlinux:latest
+            image: archlinux:base-devel
         steps:
             - name: Checkout
               uses: actions/checkout@v4
-            - name: Pacman Version
-              run: pacman --version
+            - name: Setup
+              run: |
+                pacman -Syy
+                pacman --noconfirm -S nodejs npm
+                useradd -m builder
+                echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+                chown -R builder:builder .
+            - name: Make a aur-cache package
+              run: |
+                cd aur-cache
+                sudo -u builder makepkg -sc --noconfirm
+            - name: Make a pkg-cache package
+              run: |
+                cd pkg-cache
+                sudo -u builder makepkg -sc --noconfirm
+            - name: Upload artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                name: packages
+                path: |
+                  aur-cache/*.pkg.tar.zst
+                  pkg-cache/*.pkg.tar.zst
+    deploy:
+        needs: make_pkgs
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check
+              run: |
+                ls -la
