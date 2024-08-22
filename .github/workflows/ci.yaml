@@ -23,21 +23,28 @@ jobs:
               run: |
                 cd aur-cache
                 sudo -u builder makepkg -sc --noconfirm
+                mv *.pkg.tar.zst ../
             - name: Make a pkg-cache package
               run: |
                 cd pkg-cache
                 sudo -u builder makepkg -sc --noconfirm
+                mv *.pkg.tar.zst ../
             - name: Upload artifacts
               uses: actions/upload-artifact@v4
               with:
                 name: packages
                 path: |
-                  aur-cache/*.pkg.tar.zst
-                  pkg-cache/*.pkg.tar.zst
+                  *.pkg.tar.zst
+                  *.pkg.tar.zst
     deploy:
         needs: make_pkgs
         runs-on: ubuntu-latest
         steps:
-            - name: Check
+            - name: Download artifacts
+              uses: actions/download-artifact@v4
+              with:
+                name: packages
+            - name: Unzip artifacts
               run: |
+                unzip packages
                 ls -la
