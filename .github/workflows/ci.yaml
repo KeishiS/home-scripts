@@ -46,8 +46,8 @@ jobs:
                 name: packages
             - name: Unzip artifacts
               run: |
-                unzip packages.zip
                 ls -la
+                unzip packages.zip
             - name: Release
               uses: softprops/action-gh-release@v2
               with:
