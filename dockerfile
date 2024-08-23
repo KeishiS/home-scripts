@@ -15,6 +15,6 @@ RUN cd /home-scripts/aur-cache && sudo -u builder makepkg -sci --noconfirm && \
 
 RUN mkdir -p /nfs/archlinux
 
-RUN systemctl enable aur-cache.timer pkg-cache.timer
+# RUN systemctl enable aur-cache.timer pkg-cache.timer
 
 CMD [ "/usr/bin/bash" ]
