@@ -31,4 +31,4 @@ jobs:
               uses: docker/build-push-action@v6
               with:
                 push: true
-                tags: home-scripts
+                tags: nobuta05/home-scripts:latest
