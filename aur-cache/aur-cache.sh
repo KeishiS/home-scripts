@@ -44,6 +44,7 @@ MIRROR_URLS=(
     "http://mirror.funami.tech/arch"
     "http://mirror.morgan.kr/archlinux"
     "http://mirror.siwoo.org/archlinux"
+    "http://mirror.arizona.edu/archlinux"
 )
 n_mirrors=${#MIRROR_URLS[@]}
 idx=$((RANDOM % n_mirrors + 1))
