@@ -26,7 +26,7 @@ jobs:
               with:
                 install: true
             - name: Build image
-              run: docker build -t ${REGISTRY}/keishis/home-scripts .
+              run: docker build -t home-scripts .
             - name: Deploy
               uses: docker/build-push-action@v6
               with:
