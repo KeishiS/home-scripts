@@ -32,6 +32,7 @@ pkgs=(
     "dex"
     "discord"
     "docker"
+    "docker-buildx"
     "dunst"
     "evince"
     "fd"
