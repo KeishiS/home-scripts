@@ -229,6 +229,7 @@ function fetch_pkg() {
 pacman -Syy
 REPOS=("core" "extra" "community")
 for repo in ${REPOS[@]}; do
+    mkdir -p ${OUTDIR}/${repo}/x86_64/
     wget --limit-rate=2m \
         -O ${OUTDIR}/${repo}/x86_64/${repo}.db \
         ${MIRROR_URLS[idx]}/${repo}/os/x86_64/${repo}.db
