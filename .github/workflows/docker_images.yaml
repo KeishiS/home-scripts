@@ -30,9 +30,9 @@ jobs:
             - name: Build image
               env:
                 REGISTRY: ${{ env.REGISTRY }}
-              run: docker build -t ${REGISTRY}/KeishiS/home-scripts .
+              run: docker build -t ${REGISTRY}/keishis/home-scripts .
             - name: Deploy
               uses: docker/build-push-action@v6
               with:
                 push: true
-                tags: ${{ env.REGISTRY }}/KeishiS/home-scripts
+                tags: ${{ env.REGISTRY }}/keishis/home-scripts
