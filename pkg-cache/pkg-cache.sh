@@ -67,6 +67,7 @@ pkgs=(
     "pacman-contrib"
     "parallel"
     "pavucontrol"
+    "pdfgrep"
     "perl"
     "perl-rename"
     "picom"
