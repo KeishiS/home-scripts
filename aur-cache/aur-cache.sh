@@ -25,7 +25,7 @@ pkgs=(
     "swaylock-effects"
     "visual-studio-code-bin"
     "otf-source-han-code-jp"
-    "tabby-bin"
+    "proton-mail"
     "ttf-icomoon-feather"
     "ttf-hackgen"
     "ttf-juliamono"
